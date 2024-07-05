@@ -11,11 +11,11 @@ class Grid:
         self.screen = screen
         self.tiles = []  #list to hold the tile object for grid
 
-        for i in range(num_colums):
+        for i in range(num_rows):
             row = []
-            for j in range(num_rows):
-                x = i * self.tile_width
-                y = j * self.tile_height
+            for j in range(num_colums):
+                x = j * self.tile_width
+                y = i * self.tile_height
                 tile = Tile(x, y, self.tile_width, self.tile_height, self.tile_color)
                 row.append(tile)
             self.tiles.append(row)
@@ -53,8 +53,8 @@ def main():
     
     num_rows = 5
     num_colums = 5
-    tile_width = screen_width // num_rows
-    tile_height = screen_height // num_colums
+    tile_width = screen_width // num_colums
+    tile_height = screen_height // num_rows
 
     grid = Grid(num_colums, num_rows, tile_width, tile_height, tile_color, screen)
 
