@@ -8,9 +8,11 @@ def main():
 
     sim: ForestSimulation = ForestSimulation(forest_size, num_trees, max_age)
 
-    for step in range(steps):
-        sim.run_sim()
-        sim.print_forest(step)
+    # for step in range(steps):
+    #     sim.run_sim()
+    #     sim.print_forest(step)
+
+    sim.print_forest()
 
 if __name__ == "__main__":
     main()

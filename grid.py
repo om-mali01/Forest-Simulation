@@ -2,7 +2,7 @@ from tile import Tile
 import pygame, sys
 
 class Grid:
-    def __init__(self, num_colums, num_rows, tile_width, tile_height, tile_color, screen) -> None:
+    def __init__(self, num_colums:int, num_rows:int, tile_width:float, tile_height:float, tile_color, screen) -> None:
         self.num_colums = num_colums
         self.num_rows = num_rows
         self.tile_width = tile_width
