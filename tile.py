@@ -12,4 +12,4 @@ class Tile:
     def draw_tile(self, screen):
         # draws the tile on scrreen
         self.screen = screen
-        pygame.draw.rect(self.screen, self.color, self.rect, 1)
+        pygame.draw.rect(self.screen, self.color, self.rect)

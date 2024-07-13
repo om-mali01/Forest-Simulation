@@ -40,15 +40,15 @@ class ForestSimulation:
                     self.forest[i][j] = None
 
     def print_forest(self):
-        # print(self.forest)
-        for row in self.forest:
-            for tree in row:
-                if not tree:
-                    print('.', end=' ')
-                    continue
-                print(f'T{tree.age}', end=' ')
-            print()
-        print()
+        print(self.forest)
+        # for row in self.forest:
+        #     for tree in row:
+        #         if not tree:
+        #             print('.', end=' ')
+        #             continue
+        #         print(f'T{tree.age}', end=' ')
+        #     print()
+        # print()
 
     # def print_forest(self, step: int) -> None:
     #     print(f"Step {step + 1}:")
