@@ -103,11 +103,11 @@ def main():
                 running = False
 
         if not step < max_step:
-            break  #try agian without break !!!
+            running = False
         forest.run_sim()
         step += 1
+        print(step)
             
-        screen.fill((255, 255, 255))
         forest.draw(screen)
         pygame.display.flip()
         clock.tick(1)
