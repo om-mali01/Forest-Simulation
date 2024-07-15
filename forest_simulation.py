@@ -1,51 +1,49 @@
 import random
-from tree import Tree
+from tile import Tile
 
-class ForestSimulation:
-    def __init__(self, forest_size: int, num_trees: int, max_age: int) -> None:
-        self.forest_size = forest_size
+class Forest:
+    def __init__(self, num_trees, rows, colums, max_age, tile_width, tile_height) -> None:
         self.num_trees = num_trees
+        self.rows = rows
+        self.colums = colums
         self.max_age = max_age
-        self.forest = self.create_2d_list()
-        self.initialize_forest()
+        self.tile_width = tile_width
+        self.tile_height = tile_height
+        self.forest = self.create_empty_forest()
+        self.place_trees_randomly()
 
-    def create_2d_list(self):
+    def create_empty_forest(self):
         forest = []
-        for _ in range(self.forest_size):
+        for i in range(self.rows):
             row = []
-            for _ in range(self.forest_size):
-                row.append(None)
+            for j in range(self.colums):
+                x = j * self.tile_width
+                y = i * self.tile_height
+                tile = Tile(x, y, self.tile_width, self.tile_height, (139, 69, 19), 0, False)
+                row.append(tile)
             forest.append(row)
         return forest
-
-    def place_trees_randomly(self) -> None:
-        x = random.randint(0, self.forest_size-1)
-        y = random.randint(0, self.forest_size-1)
-        if self.forest[x][y] is None:
-            age = random.randint(0, self.max_age)
-            alive = True if age <= 10 else False
-            self.forest[x][y] = Tree(age, alive)
-
-    def initialize_forest(self) -> None:
-        for _ in range(self.num_trees):
-            self.place_trees_randomly()
+    
+    def place_trees_randomly(self):
+        while self.num_trees > 0:
+            x = random.randint(0, self.rows-1)
+            y = random.randint(0, self.colums-1)
+            if not self.forest[x][y].alive:
+                age = random.randint(0, self.max_age)
+                alive = True if age <= 10 else False
+                color = (0, 128, 0) if alive else (139, 69, 19)
+                self.forest[x][y].age = age 
+                self.forest[x][y].tile_color = color
+                self.forest[x][y].alive = alive
+                self.num_trees -= 1
 
     def run_sim(self) -> None:
-        for i in range(self.forest_size):
-            for j in range(self.forest_size):
-                if not self.forest[i][j]:
-                    continue
-                self.forest[i][j].grow()
-                if not self.forest[i][j].alive:
-                    self.forest[i][j] = None
-
-    def print_forest(self, step: int) -> None:
-        print(f"Step {step + 1}:")
         for row in self.forest:
-            for tree in row:
-                if not tree:
-                    print('.', end='  ')
-                    continue
-                print(f'T{tree.age}', end='  ')
-            print()
-        print()
+            for tile in row:
+                if tile.alive:
+                    tile.grow()
+
+    def draw(self, screen):
+        for row in self.forest:
+            for tile in row:
+                tile.draw_tile(screen)
