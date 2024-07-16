@@ -12,14 +12,28 @@ class Tile:
         self.rect = pygame.Rect(x, y, tile_width, tile_height)
     
     def grow(self) -> None:
-        self.age += 1
-        if self.age > 10:
-            self.alive = False
-            self.tile_color = (139, 69, 19) #brown
-        elif 4 < self.age < 7:
-            self.tile_color = (0,150, 0)  #light green
-        else:
-            self.tile_color = (0, 200, 0)  #dark green
+        if self.age < 10:
+            self.age += 1
+            if self.age < 1:
+                self.tile_color = (0,230, 0)  
+            elif self.age < 2:
+                self.tile_color = (0, 220, 0)
+            elif self.age < 3:
+                self.tile_color = (0, 200, 0)
+            elif self.age < 4:
+                self.tile_color = (0, 180, 0)
+            elif self.age < 5:
+                self.tile_color = (0, 150, 0)
+            elif self.age < 6:
+                self.tile_color = (0, 140, 0)
+            elif self.age < 7:
+                self.tile_color = (0, 130, 0)
+            elif self.age < 8:
+                self.tile_color = (0, 120, 0)
+            elif self.age < 9:
+                self.tile_color = (0, 110, 0)
+            else:
+                self.tile_color = (0,100, 0) #darkest
 
     def draw_tile(self, screen):
         self.screen = screen
