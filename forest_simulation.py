@@ -37,77 +37,68 @@ class Forest:
                 self.forest[x][y].alive = alive
                 self.num_trees -= 1
 
-    # def sunlight_effect(self, i, j):
-    #     # -ve part/axis
-
-    #     # upper side 
-    #     up_x = i
-    #     up_y = j - 1
-    #     if up_y >= 0:
-    #         if self.forest[up_x][up_y].age >= self.max_age:
-    #             False
-        
-    #     # left side 
-    #     left_x = i - 1
-    #     left_y = j
-    #     if left_x >= 0:
-    #         if self.forest[left_x][left_y].age >= self.max_age:
-    #             False
-
-    #     # +ve part 
-
-    #     # right side 
-    #     right_x = i + 1
-    #     right_y = j
-    #     if right_x < self.columns:
-    #         if self.forest[right_x][right_y].age >= self.max_age:
-    #             False
-        
-    #     # down side 
-    #     down_x = i
-    #     down_y = j + 1
-    #     if down_y < self.rows:
-    #         if self.forest[down_x][down_y].age >= self.max_age:
-    #             False
-
-    #     If none of the neighboring trees block sunlight, return True   
-    #     return True
-
     def run_sim(self) -> None:
         for i in range(self.rows):
             for j in range(self.columns):
                 tile = self.forest[i][j]
                 
                 # -ve part/axis
-
-                # upper side 
-                up_x = i
-                up_y = j - 1
-                if up_y >= 0:
-                    if self.forest[up_x][up_y].age >= self.max_age:
+                # Top
+                x = i
+                y = j - 1
+                if 0 <= x < self.rows and 0 <= y < self.columns:
+                    if self.forest[x][y].age >= self.max_age:
                         continue
                 
-                # left side 
-                left_x = i - 1
-                left_y = j
-                if left_x >= 0:
-                    if self.forest[left_x][left_y].age >= self.max_age:
+                # left
+                x = i - 1
+                y = j
+                if 0 <= x < self.rows and 0 <= y < self.columns:
+                    if self.forest[x][y].age >= self.max_age:
                         continue
 
                 # +ve part 
-
-                # right side 
-                right_x = i + 1
-                right_y = j
-                if right_x < self.columns:
-                    if self.forest[right_x][right_y].age >= self.max_age:
+                # right
+                x = i + 1
+                y = j
+                if 0 <= x < self.rows and 0 <= y < self.columns:
+                    if self.forest[x][y].age >= self.max_age:
                         continue
                 
-                # down side 
-                down_x = i
-                down_y = j + 1
-                if down_y < self.rows:
-                    if self.forest[down_x][down_y].age >= self.max_age:
+                # Bottom
+                x = i
+                y = j + 1
+                if 0 <= x < self.rows and 0 <= y < self.columns:
+                    if self.forest[x][y].age >= self.max_age:
+                        continue
+
+                # check diagonally
+                # Top-left
+                x = i - 1
+                y = j - 1
+                if 0 <= x < self.rows and 0 <= y < self.columns:
+                    if self.forest[x][y].age >= self.max_age:
+                        continue
+
+                # Top-right
+                x = i + 1
+                y = j - 1
+                if 0 <= x < self.rows and 0 <= y < self.columns:
+                    if self.forest[x][y].age >= self.max_age:
+                        continue
+                
+                # Bottom-right
+                x = i + 1
+                y = j + 1
+                if 0 <= x < self.rows and 0 <= y < self.columns:
+                    if self.forest[x][y].age >= self.max_age:
+                        continue
+                
+                # Bottom-left
+                x = i - 1
+                y = j + 1
+                if 0 <= x < self.rows and 0 <= y < self.columns:
+                    if self.forest[x][y].age >= self.max_age:
                         continue
 
                 tile.grow()
