@@ -37,6 +37,12 @@ class Forest:
                 self.forest[x][y].alive = alive
                 self.num_trees -= 1
 
+    def check_boundary(self, x, y):
+        if 0 <= x < self.rows and 0 <= y < self.columns:
+            if self.forest[x][y].age >= self.max_age:
+                return False
+        return True
+
     def run_sim(self) -> None:
         for i in range(self.rows):
             for j in range(self.columns):
@@ -46,60 +52,53 @@ class Forest:
                 # Top
                 x = i
                 y = j - 1
-                if 0 <= x < self.rows and 0 <= y < self.columns:
-                    if self.forest[x][y].age >= self.max_age:
-                        continue
+                # if self.check_boundary == False then continue
+                if not self.check_boundary(x, y):
+                    continue
                 
                 # left
                 x = i - 1
                 y = j
-                if 0 <= x < self.rows and 0 <= y < self.columns:
-                    if self.forest[x][y].age >= self.max_age:
-                        continue
+                if not self.check_boundary(x, y):
+                    continue
 
                 # +ve part 
                 # right
                 x = i + 1
                 y = j
-                if 0 <= x < self.rows and 0 <= y < self.columns:
-                    if self.forest[x][y].age >= self.max_age:
-                        continue
+                if not self.check_boundary(x, y):
+                    continue
                 
                 # Bottom
                 x = i
                 y = j + 1
-                if 0 <= x < self.rows and 0 <= y < self.columns:
-                    if self.forest[x][y].age >= self.max_age:
-                        continue
+                if not self.check_boundary(x, y):
+                    continue
 
                 # check diagonally
                 # Top-left
                 x = i - 1
                 y = j - 1
-                if 0 <= x < self.rows and 0 <= y < self.columns:
-                    if self.forest[x][y].age >= self.max_age:
-                        continue
+                if not self.check_boundary(x, y):
+                    continue
 
                 # Top-right
                 x = i + 1
                 y = j - 1
-                if 0 <= x < self.rows and 0 <= y < self.columns:
-                    if self.forest[x][y].age >= self.max_age:
-                        continue
+                if not self.check_boundary(x, y):
+                    continue
                 
                 # Bottom-right
                 x = i + 1
                 y = j + 1
-                if 0 <= x < self.rows and 0 <= y < self.columns:
-                    if self.forest[x][y].age >= self.max_age:
-                        continue
+                if not self.check_boundary(x, y):
+                    continue
                 
                 # Bottom-left
                 x = i - 1
                 y = j + 1
-                if 0 <= x < self.rows and 0 <= y < self.columns:
-                    if self.forest[x][y].age >= self.max_age:
-                        continue
+                if not self.check_boundary(x, y):
+                    continue
 
                 tile.grow()
 
