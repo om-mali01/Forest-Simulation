@@ -19,7 +19,7 @@ class Forest:
             for j in range(self.columns):
                 x = j * self.tile_width
                 y = i * self.tile_height
-                tile = Tile(x, y, self.tile_width, self.tile_height, (139, 69, 19), 0, False)
+                tile = Tile(x, y, self.tile_width, self.tile_height, (139, 69, 19), 0, self.max_age, False)  #brown (139, 69, 19)
                 row.append(tile)
             forest.append(row)
         return forest
@@ -30,15 +30,18 @@ class Forest:
             y = random.randint(0, self.columns-1)
             if not self.forest[x][y].alive:
                 age = random.randint(0, self.max_age)
-                alive = True
-                color = (0, 200, 0)
+                if age == self.max_age:
+                    self.forest[x][y].tile_color = (128, 128, 128)  #Grey
+                    alive = False
+                else:
+                    self.forest[x][y].tile_color = (0, 200, 0)  #green
+                    alive = True
                 self.forest[x][y].age = age 
-                self.forest[x][y].tile_color = color
                 self.forest[x][y].alive = alive
                 self.num_trees -= 1
 
     def check_boundary(self, x, y):
-        if 0 <= x < self.rows and 0 <= y < self.columns:
+        if 0 <= x < self.rows and 0 <= y < self.columns:    #!!!!
             if self.forest[x][y].age >= self.max_age:
                 return False
         return True
