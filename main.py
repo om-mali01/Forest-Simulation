@@ -11,13 +11,13 @@ def main():
 
     num_trees = 50
     rows = 10
-    colums = 10
+    columns = 10
     max_age = 10
-    tile_width = screen_width//colums
+    tile_width = screen_width//columns
     tile_height = screen_height//rows
 
     # obj of the forest
-    forest = Forest(num_trees, rows, colums, max_age, tile_width, tile_height)
+    forest = Forest(num_trees, rows, columns, max_age, tile_width, tile_height)
 
     step = 0
     max_step = 5 #number of times sim will run
@@ -28,11 +28,12 @@ def main():
             if event.type == pygame.QUIT:
                 running = False
 
-        if not step < max_step:
-            running = False
-        forest.run_sim()
-        step += 1
-        print(step)
+        if step < max_step:
+            # running = False
+            forest.run_sim()
+            step += 1
+            print(step)
+            # forest.print_forest()
             
         forest.draw(screen)
         pygame.display.flip()
