@@ -33,7 +33,7 @@ def main():
             forest.run_sim()
             step += 1
             print(step)
-            forest.print_forest()
+            # forest.print_forest()
             
         forest.draw(screen)
         pygame.display.flip()

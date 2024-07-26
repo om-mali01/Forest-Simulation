@@ -30,12 +30,8 @@ class Forest:
             y = random.randint(0, self.columns-1)
             if not self.forest[x][y].alive:
                 age = random.randint(0, self.max_age)
-                if age == self.max_age:
-                    self.forest[x][y].tile_color = (128, 128, 128)  #Grey
-                    alive = False
-                else:
-                    self.forest[x][y].tile_color = (0, 200, 0)  #green
-                    alive = True
+                self.forest[x][y].tile_color = (0, 250 - 15*age, 0)  #green
+                alive = True
                 self.forest[x][y].age = age 
                 self.forest[x][y].alive = alive
                 self.num_trees -= 1
