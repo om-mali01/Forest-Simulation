@@ -20,7 +20,7 @@ def main():
     forest = Forest(num_trees, rows, columns, max_age, tile_width, tile_height)
 
     step = 0
-    max_step = 8 #number of times sim will run
+    max_step = 5 #number of times sim will run
 
     running = True
     while running:

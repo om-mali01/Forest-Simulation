@@ -31,7 +31,6 @@ class Forest:
             if not self.forest[x][y].alive:
                 # if the age generates max_age (eg.10) (initial state), when the sim starts, max_age tree will be at dead state
                 # so to avoid this generation of age should be less than max_age (1, self.max_age-1)
-
                 age = random.randint(1, self.max_age-1)
                 self.forest[x][y].tile_color = (0, 250 - 20*age, 0)  #green
                 alive = True
