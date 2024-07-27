@@ -29,20 +29,20 @@ class Forest:
             x = random.randint(0, self.rows-1)
             y = random.randint(0, self.columns-1)
             if not self.forest[x][y].alive:
-                age = random.randint(0, self.max_age)
-                if age == self.max_age:
-                    self.forest[x][y].tile_color = (128, 128, 128)  #Grey
-                    alive = False
-                else:
-                    self.forest[x][y].tile_color = (0, 200, 0)  #green
-                    alive = True
+                # if the age generates max_age (eg.10) (initial state), when the sim starts, max_age tree will be at dead state
+                # so to avoid this generation of age should be less than max_age (1, self.max_age-1)
+
+                age = random.randint(1, self.max_age-1)
+                self.forest[x][y].tile_color = (0, 250 - 20*age, 0)  #green
+                alive = True
                 self.forest[x][y].age = age 
                 self.forest[x][y].alive = alive
                 self.num_trees -= 1
 
     def check_boundary(self, x, y):
         if 0 <= x < self.rows and 0 <= y < self.columns:    #!!!!
-            if self.forest[x][y].age >= self.max_age:
+            neighbor_tile = self.forest[x][y]
+            if neighbor_tile.age >= self.max_age:
                 return False
         return True
 
@@ -50,7 +50,10 @@ class Forest:
         for i in range(self.rows):
             for j in range(self.columns):
                 tile = self.forest[i][j]
-                
+                if tile.age == self.max_age:
+                    tile.grow()
+                    continue
+
                 # -ve part/axis
                 # Top
                 x = i
