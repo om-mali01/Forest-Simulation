@@ -1,5 +1,6 @@
 import pygame, sys
 from forest_simulation import Forest
+import stats
 
 def main():
     pygame.init()
@@ -37,8 +38,8 @@ def main():
             
         forest.draw(screen)
         pygame.display.flip()
-        clock.tick(1)
-
+        clock.tick(5)
+    stats.report()
     pygame.quit()
     sys.exit()
 

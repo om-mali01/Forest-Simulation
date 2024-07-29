@@ -1,7 +1,8 @@
 import pygame
+import stats
 
 class Tile:
-    def __init__(self, x, y, tile_width, tile_height, tile_color, age, max_age, alive=False) -> None:
+    def __init__(self, x, y, tile_width, tile_height, tile_color, age, max_age, height, alive=False) -> None:
         self.x = x
         self.y = y
         self.tile_width = tile_width
@@ -9,6 +10,7 @@ class Tile:
         self.tile_color = tile_color
         self.age = age
         self.max_age = max_age
+        self.height = height
         self.alive = alive
         self.rect = pygame.Rect(x, y, tile_width, tile_height)
     
@@ -19,12 +21,17 @@ class Tile:
             return
         elif self.age < self.max_age:
             self.age += 1
+            self.height += 2
+            stats.max_age_tree(self.age)
+            stats.max_height_tree(self.height)
             self.tile_color = (0, 250 - 20*self.age, 0)
             self.alive = True
         else:
             self.tile_color = (128, 128, 128)
             self.alive = False
             self.age = 0
+            self.height = 0
+            stats.countDeadTrees()
 
     def draw_tile(self, screen):
         self.screen = screen

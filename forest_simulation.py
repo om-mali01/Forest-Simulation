@@ -1,5 +1,6 @@
 import random
 from tile import Tile
+import stats
 
 class Forest:
     def __init__(self, num_trees, rows, columns, max_age, tile_width, tile_height) -> None:
@@ -19,7 +20,7 @@ class Forest:
             for j in range(self.columns):
                 x = j * self.tile_width
                 y = i * self.tile_height
-                tile = Tile(x, y, self.tile_width, self.tile_height, (139, 69, 19), 0, self.max_age, False)  #brown (139, 69, 19)
+                tile = Tile(x, y, self.tile_width, self.tile_height, (139, 69, 19), 0, self.max_age, 0, False)  #brown (139, 69, 19)
                 row.append(tile)
             forest.append(row)
         return forest
@@ -34,7 +35,8 @@ class Forest:
                 age = random.randint(1, self.max_age-1)
                 self.forest[x][y].tile_color = (0, 250 - 20*age, 0)  #green
                 alive = True
-                self.forest[x][y].age = age 
+                self.forest[x][y].age = age
+                self.forest[x][y].height = age*2
                 self.forest[x][y].alive = alive
                 self.num_trees -= 1
 
@@ -49,6 +51,13 @@ class Forest:
         for i in range(self.rows):
             for j in range(self.columns):
                 tile = self.forest[i][j]
+
+                if tile.alive:
+                    stats.simpleCount()
+                    stats.total_count_ages(tile.age)
+                    stats.total_count_height(tile.height)
+                if tile.age == 1:
+                    stats.countTotalTrees()     #count the total number of trees
                 if tile.age == self.max_age:
                     tile.grow()
                     continue
