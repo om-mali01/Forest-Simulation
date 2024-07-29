@@ -22,8 +22,8 @@ class Tile:
         elif self.age < self.max_age:
             self.age += 1
             self.height += 2
-            stats.max_age_tree(self.age)
-            stats.max_height_tree(self.height)
+            stats.update_max_age_tree(self.age)           #update the max age
+            stats.update_max_height_tree(self.height)     #update the max height
             self.tile_color = (0, 250 - 20*self.age, 0)
             self.alive = True
         else:
@@ -31,7 +31,7 @@ class Tile:
             self.alive = False
             self.age = 0
             self.height = 0
-            stats.countDeadTrees()
+            stats.increment_total_dead_trees()            #count the dead trees
 
     def draw_tile(self, screen):
         self.screen = screen

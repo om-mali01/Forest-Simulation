@@ -53,11 +53,11 @@ class Forest:
                 tile = self.forest[i][j]
 
                 if tile.alive:
-                    stats.simpleCount()
-                    stats.total_count_ages(tile.age)
-                    stats.total_count_height(tile.height)
+                    stats.increment_sim_steps()
+                    stats.add_tree_age(tile.age)             
+                    stats.add_tree_height(tile.height)
                 if tile.age == 1:
-                    stats.countTotalTrees()     #count the total number of trees
+                    stats.increment_total_trees_planted()     #count the total number of trees
                 if tile.age == self.max_age:
                     tile.grow()
                     continue
