@@ -38,7 +38,7 @@ def main():
             
         forest.draw(screen)
         pygame.display.flip()
-        clock.tick(5)
+        clock.tick(1)
     stats.report()
     pygame.quit()
     sys.exit()
