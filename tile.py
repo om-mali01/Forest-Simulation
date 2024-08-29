@@ -2,7 +2,7 @@ import pygame
 import stats
 
 class Tile:
-    def __init__(self, x, y, tile_width, tile_height, tile_color, age, max_age, height, tree_species, stats, alive=False) -> None:
+    def __init__(self, x, y, tile_width, tile_height, tile_color, age, max_age, max_height, height, tree_species, stats, alive=False) -> None:
         self.x = x
         self.y = y
         self.tile_width = tile_width
@@ -10,6 +10,7 @@ class Tile:
         self.tile_color = tile_color
         self.age = age
         self.max_age = max_age
+        self.max_height = max_height
         self.height = height
         self.stats = stats
         self.alive = alive
@@ -28,8 +29,9 @@ class Tile:
             if self.temperature[0] < forest_temp < self.temperature[1] and self.ph[0] < soil_ph < self.ph[1]:
                 self.height += self.growth_rate
             else:
-                self.growth_rate -= 0.5
-                self.height += self.growth_rate
+                if self.growth_rate > 0:
+                    self.growth_rate -= 0.5
+                    self.height += self.growth_rate
 
             self.stats.update_max_age_tree(self.age)           #update the max age
             self.stats.update_max_height_tree(self.height)     #update the max height

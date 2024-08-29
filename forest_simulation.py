@@ -3,11 +3,12 @@ from tile import Tile
 import json
 
 class Forest:
-    def __init__(self, num_trees, rows, columns, max_age, tile_width, tile_height, forest_temperature, soil_ph, tree_data, stats) -> None:
+    def __init__(self, num_trees, rows, columns, max_age, max_height, tile_width, tile_height, forest_temperature, soil_ph, tree_data, stats) -> None:
         self.num_trees = num_trees
         self.rows = rows
         self.columns = columns
         self.max_age = max_age
+        self.max_height = max_height
         self.tile_width = tile_width
         self.tile_height = tile_height
         self.forest_temperature = forest_temperature
@@ -25,8 +26,8 @@ class Forest:
             for j in range(self.columns):
                 x = j * self.tile_width
                 y = i * self.tile_height
-                tree_species = self.tree_data[0]
-                tile = Tile(x, y, self.tile_width, self.tile_height, (139, 69, 19), 0, self.max_age, 0, tree_species, self.stats, False)  #brown (139, 69, 19)
+                tree_species = random.choice(self.tree_data)
+                tile = Tile(x, y, self.tile_width, self.tile_height, (139, 69, 19), 0, self.max_age, self.max_height, 0, tree_species, self.stats, False)  #brown (139, 69, 19)
                 row.append(tile)
             forest.append(row)
         return forest
@@ -38,20 +39,20 @@ class Forest:
             if not self.forest[x][y].alive:
                 # if the age generates max_age (eg.10) (initial state), when the sim starts, max_age tree will be at dead state
                 # so to avoid this generation of age should be less than max_age (1, self.max_age-1)
-                tree_species = self.tree_data[0]
-                age = random.randint(1, self.max_age-1)
+                tree_species = random.choice(self.tree_data)
+                age = random.randint(1, self.max_age-2)
                 self.forest[x][y].tile_color = (0, 250 - 20*age, 0)  #green
                 alive = True
                 self.forest[x][y].age = age
-                self.forest[x][y].height = age*2
+                self.forest[x][y].height = age*tree_species["growth rate"]
                 self.forest[x][y].tree_species = tree_species
                 self.forest[x][y].alive = alive
                 self.num_trees -= 1
-
+    
     def check_boundary(self, x, y):
         if 0 <= x < self.rows and 0 <= y < self.columns:    #!!!!
             neighbor_tile = self.forest[x][y]
-            if neighbor_tile.age >= self.max_age:
+            if neighbor_tile.height >= self.max_height:
                 return False
         return True
 
@@ -66,7 +67,7 @@ class Forest:
                     self.stats.total_tree_height(tile.height)
                 if tile.age == 1:
                     self.stats.increment_tree_count()     #count the total number of trees
-                if tile.age == self.max_age:
+                if tile.height == self.max_height:
                     tile.grow(self.forest_temperature, self.soil_ph)
                     continue
 

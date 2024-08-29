@@ -2,80 +2,60 @@
     {
         "Name": "Oak",
         "growth rate": 2.5,
-        "max height": 40,
-        "max age": 1000,
         "pH range": [6.0, 7.0],
         "temperature range": [15, 30]
     },
     {
         "Name": "Coconut",
         "growth rate": 1,
-        "max height": 100,
-        "max age": 70,
         "pH range": [5.5, 7.5],
         "temperature range": [22, 32]
     },
     {
         "Name": "Pine",
         "growth rate": 1.5,
-        "max height": 150,
-        "max age": 450,
         "pH range": [4.5, 6.0],
         "temperature range": [-5, 20]
     },
     {
         "Name": "Maple",
         "growth rate": 2,
-        "max height": 35,
-        "max age": 300,
         "pH range": [6.0, 7.5],
         "temperature range": [5, 25]
     },
     {
         "Name": "Bamboo",
         "growth rate": 3,
-        "max height": 80,
-        "max age": 120,
         "pH range": [5.5, 6.5],
         "temperature range": [10, 35]
     },
     {
         "Name": "Sequoia",
         "growth rate": 1,
-        "max height": 250,
-        "max age": 2000,
         "pH range": [5.5, 6.5],
         "temperature range": [5, 20]
     },
     {
         "Name": "Birch",
         "growth rate": 2.2,
-        "max height": 25,
-        "max age": 140,
         "pH range": [5.0, 6.5],
         "temperature range": [0, 22]
     },
     {
         "Name": "Eucalyptus",
         "growth rate": 2.8,
-        "max height": 60,
-        "max age": 250,
         "pH range": [5.0, 7.5],
         "temperature range": [12, 35]
     },
     {
         "Name": "Baobab",
         "growth rate": 0.8,
-        "max height": 30,
-        "max age": 1500,
         "pH range": [6.0, 7.5],
         "temperature range": [18, 32]
     },
     {
         "Name": "Redwood",
         "growth rate": 1.5,
-        "max height": 300,
-        "max age": 2200,
         "pH range": [5.5, 7.0],
         "temperature range": [10, 20]
     }
