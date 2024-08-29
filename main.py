@@ -19,8 +19,12 @@ def main():
     tile_width = screen_width//columns
     tile_height = screen_height//rows
 
+    # forest_data
     forest_temperature = 15
     soil_ph = 5.6
+    moisture = 55
+    sunlight_intensity = 65
+    soil_nutrients = 70
 
     with open('tree_species.json', 'r') as file:
         data = json.load(file)
@@ -28,7 +32,7 @@ def main():
     stats = Stats()
     
     # obj of the forest
-    forest = Forest(num_trees, rows, columns, max_age, max_height, tile_width, tile_height, forest_temperature, soil_ph, data, stats)
+    forest = Forest(num_trees, rows, columns, max_age, max_height, tile_width, tile_height, forest_temperature, soil_ph, moisture, sunlight_intensity, soil_nutrients, data, stats)
 
     step = 0
     max_step = 7 #number of times sim will run

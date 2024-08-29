@@ -3,7 +3,7 @@ from tile import Tile
 import json
 
 class Forest:
-    def __init__(self, num_trees, rows, columns, max_age, max_height, tile_width, tile_height, forest_temperature, soil_ph, tree_data, stats) -> None:
+    def __init__(self, num_trees, rows, columns, max_age, max_height, tile_width, tile_height, forest_temperature, soil_ph, moisture, sunlight_intensity, soil_nutrients, tree_data, stats) -> None:
         self.num_trees = num_trees
         self.rows = rows
         self.columns = columns
@@ -13,6 +13,9 @@ class Forest:
         self.tile_height = tile_height
         self.forest_temperature = forest_temperature
         self.soil_ph = soil_ph
+        self.moisture = moisture
+        self.sunlight_intensity = sunlight_intensity
+        self.soil_nutrients = soil_nutrients
         self.tree_data = tree_data
         self.stats = stats
         self.forest = self.create_empty_forest()
@@ -48,7 +51,7 @@ class Forest:
                 self.forest[x][y].tree_species = tree_species
                 self.forest[x][y].alive = alive
                 self.num_trees -= 1
-    
+
     def check_boundary(self, x, y):
         if 0 <= x < self.rows and 0 <= y < self.columns:    #!!!!
             neighbor_tile = self.forest[x][y]
@@ -68,7 +71,7 @@ class Forest:
                 if tile.age == 1:
                     self.stats.increment_tree_count()     #count the total number of trees
                 if tile.height == self.max_height:
-                    tile.grow(self.forest_temperature, self.soil_ph)
+                    tile.grow(self.forest_temperature, self.soil_ph, self.moisture, self.sunlight_intensity, self.soil_nutrients)
                     continue
 
                 # -ve part/axis
@@ -123,7 +126,7 @@ class Forest:
                 if not self.check_boundary(x, y):
                     continue
 
-                tile.grow(self.forest_temperature, self.soil_ph)
+                tile.grow(self.forest_temperature, self.soil_ph, self.moisture, self.sunlight_intensity, self.soil_nutrients)
 
         data = self.stats.report()
         self.sim_data.append(data)
