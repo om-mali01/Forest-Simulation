@@ -40,8 +40,10 @@ class Tile:
             favorable_sunlight_intensity = self.sunlight_intensity[0] < forest_sunlight_intensity < self.sunlight_intensity[1]
             favorable_soil_nutrients = self.soil_nutrients[0] < forest_soil_nutrients < self.soil_nutrients[1]
 
-            if favorable_temperature and favorable_ph and favorable_moisture and favorable_sunlight_intensity and favorable_soil_nutrients:
-                self.height += self.growth_rate*0.5
+            if (favorable_temperature and favorable_ph
+                and favorable_moisture and favorable_sunlight_intensity 
+                and favorable_soil_nutrients):
+                self.height += self.growth_rate+[self.growth_rate*0.25]
             else:
                 if self.growth_rate > 0:
                     self.growth_rate -= 0.5

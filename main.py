@@ -2,6 +2,7 @@ import pygame, sys
 from forest_simulation import Forest
 from stats import Stats
 import json
+import data_visualization
 
 def main():
     pygame.init()
@@ -52,6 +53,7 @@ def main():
         pygame.display.flip()
         clock.tick(2)
     # print(stats.report())
+    data_visualization.visualize_data()
     print("Year wise data has been added to the data.json file..")
     pygame.quit()
     sys.exit()
