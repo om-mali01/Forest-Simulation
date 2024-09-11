@@ -1,5 +1,8 @@
 import pygame, sys
 from forest_simulation import Forest
+from stats import Stats
+import json
+import data_visualization
 
 def main():
     pygame.init()
@@ -13,14 +16,27 @@ def main():
     rows = 10
     columns = 10
     max_age = 10
+    max_height = 10
     tile_width = screen_width//columns
     tile_height = screen_height//rows
 
+    # forest_data
+    forest_temperature = 15
+    soil_ph = 5.6
+    moisture = 55
+    sunlight_intensity = 65
+    soil_nutrients = 70
+
+    with open('tree_species.json', 'r') as file:
+        data = json.load(file)
+
+    stats = Stats()
+    
     # obj of the forest
-    forest = Forest(num_trees, rows, columns, max_age, tile_width, tile_height)
+    forest = Forest(num_trees, rows, columns, max_age, max_height, tile_width, tile_height, forest_temperature, soil_ph, moisture, sunlight_intensity, soil_nutrients, data, stats)
 
     step = 0
-    max_step = 5 #number of times sim will run
+    max_step = 7 #number of times sim will run
 
     running = True
     while running:
@@ -32,13 +48,13 @@ def main():
             # running = False
             forest.run_sim()
             step += 1
-            print(step)
             # forest.print_forest()
-            
         forest.draw(screen)
         pygame.display.flip()
-        clock.tick(1)
-
+        clock.tick(2)
+    # print(stats.report())
+    data_visualization.visualize_data()
+    print("Year wise data has been added to the data.json file..")
     pygame.quit()
     sys.exit()
 

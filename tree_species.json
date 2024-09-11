@@ -1,0 +1,92 @@
+[
+    {
+        "Name": "Oak",
+        "growth rate": 2.5,
+        "pH range": [6.0, 7.0],
+        "temperature range": [15, 30],
+        "water/moisture range": [40, 60],
+        "sunlight intensity range": [70, 100],
+        "soil nutrients range": [60, 80]      
+    },
+    {
+        "Name": "Coconut",
+        "growth rate": 1,
+        "pH range": [5.5, 7.5],
+        "temperature range": [22, 32],
+        "water/moisture range": [70, 90],
+        "sunlight intensity range": [80, 100],
+        "soil nutrients range": [50, 70]
+    },
+    {
+        "Name": "Pine",
+        "growth rate": 1.5,
+        "pH range": [4.5, 6.0],
+        "temperature range": [-5, 20],
+        "water/moisture range": [20, 50],
+        "sunlight intensity range": [70, 100],
+        "soil nutrients range": [30, 50]
+    },
+    {
+        "Name": "Maple",
+        "growth rate": 2,
+        "pH range": [6.0, 7.5],
+        "temperature range": [5, 25],
+        "water/moisture range": [40, 60],
+        "sunlight intensity range": [50, 80],
+        "soil nutrients range": [60, 80]
+    },
+    {
+        "Name": "Bamboo",
+        "growth rate": 3,
+        "pH range": [5.5, 6.5],
+        "temperature range": [10, 35],
+        "water/moisture range": [70, 90],
+        "sunlight intensity range": [50, 80],
+        "soil nutrients range": [70, 90]
+    },
+    {
+        "Name": "Sequoia",
+        "growth rate": 1,
+        "pH range": [5.5, 6.5],
+        "temperature range": [5, 20],
+        "water/moisture range": [70, 90],
+        "sunlight intensity range": [50, 80],
+        "soil nutrients range": [70, 90]
+    },
+    {
+        "Name": "Birch",
+        "growth rate": 2.2,
+        "pH range": [5.0, 6.5],
+        "temperature range": [0, 22],
+        "water/moisture range": [50, 70],
+        "sunlight intensity range": [40, 70],
+        "soil nutrients range": [50, 70]
+    },
+    {
+        "Name": "Eucalyptus",
+        "growth rate": 2.8,
+        "pH range": [5.0, 7.5],
+        "temperature range": [12, 35],
+        "water/moisture range": [40, 60],
+        "sunlight intensity range": [70, 100],
+        "soil nutrients range": [50, 70]
+    },
+    {
+        "Name": "Baobab",
+        "growth rate": 0.8,
+        "pH range": [6.0, 7.5],
+        "temperature range": [18, 32],
+        "water/moisture range": [10, 30],
+        "sunlight intensity range": [80, 100],
+        "soil nutrients range": [20, 40]
+    },
+    {
+        "Name": "Redwood",
+        "growth rate": 1.5,
+        "pH range": [5.5, 7.0],
+        "temperature range": [10, 20],
+        "water/moisture range": [70, 90],
+        "sunlight intensity range": [40, 70],
+        "soil nutrients range": [60, 80]
+    }
+]
