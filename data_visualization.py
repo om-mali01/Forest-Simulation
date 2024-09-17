@@ -14,11 +14,11 @@ def visualize_data():
     avg_height = [d["avg_height_of_tree"] for d in data]
 
     plt.plot(total_trees, color="red", linewidth=3, label="Total trees")
-    plt.plot(total_dead_trees, color="green", linewidth=3, label="total dead trees")
-    plt.plot(max_age, color="blue", linewidth=3, label="max age")
-    plt.plot(avg_age, color="black", linewidth=3, label="avg age")
-    plt.plot(max_height, color="brown", linewidth=3, label="max height")
-    plt.plot(avg_height, color="orange", linewidth=3, label="avg height")
+    plt.plot(total_dead_trees, color="green", linewidth=3, label="Total Dead Trees")
+    plt.plot(max_age, color="blue", linewidth=3, label="Max Age")
+    plt.plot(avg_age, color="black", linewidth=3, label="Avg Age")
+    plt.plot(max_height, color="brown", linewidth=3, label="Max Height")
+    plt.plot(avg_height, color="orange", linewidth=3, label="Avg Height")
 
     plt.grid()
     plt.xlabel("Year")

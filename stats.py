@@ -30,9 +30,13 @@ class Stats:
         self.total_height_trees += height
 
     def report(self):
-        avg_age = round((self.total_ages_trees / self.sim_steps), 2)
-        avg_height = round((self.total_height_trees / self.sim_steps), 2)
-        
+        if self.sim_steps == 0:
+            avg_age = 0
+            avg_height = 0
+        else:
+            avg_age = round((self.total_ages_trees / self.sim_steps), 2)
+            avg_height = round((self.total_height_trees / self.sim_steps), 2)
+
         data = {
             "total_trees": self.tree_count,
             "total_dead_trees": self.total_dead_trees,
