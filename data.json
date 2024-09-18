@@ -1,58 +1,58 @@
 [
     {
-        "total_trees": 20,
+        "total_trees": 17,
         "total_dead_trees": 0,
         "max_age_of_tree": 6,
-        "avg_age_of_tree": 2.55,
-        "max_height_of_tree": 16.0,
-        "avg_height_of_tree": 4.61
+        "avg_age_of_tree": 2.97,
+        "max_height_of_tree": 13.5,
+        "avg_height_of_tree": 5.74
     },
     {
-        "total_trees": 49,
+        "total_trees": 43,
         "total_dead_trees": 0,
         "max_age_of_tree": 7,
-        "avg_age_of_tree": 2.59,
-        "max_height_of_tree": 17.5,
-        "avg_height_of_tree": 4.46
+        "avg_age_of_tree": 2.92,
+        "max_height_of_tree": 15.5,
+        "avg_height_of_tree": 5.43
     },
     {
-        "total_trees": 56,
+        "total_trees": 54,
         "total_dead_trees": 0,
         "max_age_of_tree": 8,
-        "avg_age_of_tree": 2.84,
-        "max_height_of_tree": 18.5,
-        "avg_height_of_tree": 4.63
+        "avg_age_of_tree": 3.06,
+        "max_height_of_tree": 17.0,
+        "avg_height_of_tree": 5.43
     },
     {
-        "total_trees": 63,
+        "total_trees": 65,
         "total_dead_trees": 0,
         "max_age_of_tree": 9,
-        "avg_age_of_tree": 3.12,
-        "max_height_of_tree": 19.0,
-        "avg_height_of_tree": 4.78
+        "avg_age_of_tree": 3.25,
+        "max_height_of_tree": 18.0,
+        "avg_height_of_tree": 5.46
     },
     {
-        "total_trees": 70,
+        "total_trees": 76,
         "total_dead_trees": 0,
         "max_age_of_tree": 10,
-        "avg_age_of_tree": 3.4,
-        "max_height_of_tree": 19.0,
-        "avg_height_of_tree": 4.89
+        "avg_age_of_tree": 3.44,
+        "max_height_of_tree": 18.5,
+        "avg_height_of_tree": 5.49
     },
     {
-        "total_trees": 77,
-        "total_dead_trees": 5,
+        "total_trees": 87,
+        "total_dead_trees": 4,
         "max_age_of_tree": 10,
-        "avg_age_of_tree": 3.67,
-        "max_height_of_tree": 19.0,
-        "avg_height_of_tree": 4.97
+        "avg_age_of_tree": 3.65,
+        "max_height_of_tree": 18.5,
+        "avg_height_of_tree": 5.52
     },
     {
-        "total_trees": 84,
-        "total_dead_trees": 11,
+        "total_trees": 99,
+        "total_dead_trees": 6,
         "max_age_of_tree": 10,
-        "avg_age_of_tree": 3.89,
-        "max_height_of_tree": 19.0,
-        "avg_height_of_tree": 4.96
+        "avg_age_of_tree": 3.79,
+        "max_height_of_tree": 18.5,
+        "avg_height_of_tree": 5.48
     }
 ]
